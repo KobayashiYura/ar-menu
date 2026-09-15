@@ -1,0 +1,100 @@
+/* ① 全体の基本設定（背景を薄いグレーにしてクリーンな印象に） */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f5f7;
+  color: #333;
+}
+
+/* スマホ画面いっぱいに広げる設定 */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+/* ② 上半分：3Dモデルのエリア */
+.viewer-area {
+  flex: 1; /* 上半分のスペースを大きく取る */
+  width: 100%;
+  background-color: #eaeaea; /* 3Dが目立つように少し暗めのグレー */
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+/* ③ 下半分：情報エリア（上に重なるような白いカード風デザイン） */
+.info-area {
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px 24px 0 0; /* 上の角だけ丸くしてモダンに */
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.05); /* ふんわりとした影をつける */
+  margin-top: -20px; /* 上の3Dエリアに少し被せるのが今っぽさのコツ！ */
+  position: relative;
+  z-index: 10;
+}
+
+/* 文字の大きさと余白 */
+.menu-title {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+}
+.menu-price {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.tax-info {
+  font-size: 12px;
+  color: #888;
+  font-weight: normal;
+}
+.menu-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* ④ ボタンのデザイン */
+.size-buttons {
+  display: flex;
+  gap: 12px; /* ボタン同士のすき間 */
+}
+
+.btn {
+  flex: 1; /* 2つのボタンを均等な幅にする */
+  padding: 12px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+  border-radius: 30px; /* 丸みのある角 */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 選択されている方のボタン（黒背景で目立たせる） */
+.btn.active {
+  background-color: #222;
+  color: white;
+  border-color: #222;
+}
+
+/* ARカメラ起動ボタン（3Dエリアの下部に浮かせる） */
+.ar-button {
+  background-color: #007aff; /* クリックしたくなる鮮やかなブルー */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%); /* ど真ん中に配置する魔法のコード */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
